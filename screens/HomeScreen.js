@@ -11,6 +11,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { PageContext } from "../context";
+import FloatingButton from '../components/FloatingButton'
 
 let initialRender = true;
 const HomeScreen = () => {
@@ -89,8 +90,6 @@ const HomeScreen = () => {
     );
   }
 
-  // these functions is to toggle the center button. it will be the animation
-
   return (
     <SafeAreaView style={styles.container}>
       <Text>Email: {fire.auth.currentUser?.email}</Text>
@@ -102,75 +101,19 @@ const HomeScreen = () => {
           renderItem={({ item }) => <ItemRender item={item} name={item.name} />}
           keyExtractor={(item) => item.id.toString()}
         /> */}
-      <Text style={{position: 'absolute', alignItems:'center', top: 0, fontSize: 30}}>
-        {state ? 'Push to Begin!': 'Welcome!'}
-      </Text>
+
+      {/* this is the beginning of the center buttons */}
+        <View style={[styles.container, this.props.style]}>
+          <Text style={{position: 'absolute', alignItems:'center', top: 0, fontSize: 30}}>
+            {state ? 'Push to Begin!': 'Welcome!'}
+          </Text>
+        </View>
 
       <View style={{right: 120, top:200}}>
+        {/* calls the floating button class from components folder, should have all the buttons and functions */}
+        <FloatingButton onPress={toggle}/>
         
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Education", {listID: 0 });
-          }}
-          style={[styles.circleButton, {left:60, bottom: 70}]}
-        >
-          <Image style={{width: 60, height: 60}}
-            resizeMode='contain'
-            source={require('../assets/education.png')}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Employment", {listID: 1 });
-          }}
-          style={[styles.circleButton, {left:290, bottom: 140}]}
-        >
-          <Image style={{width: 60, height: 55, bottom: 2}}
-          resizeMode='contain'
-          source={require('../assets/employment.png')}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Financial", {listID: 2 });
-          }}
-          style={[styles.circleButton, {left:60, bottom: 20}]}
-        >
-          <Image style={{width: 60, height: 60}}
-          resizeMode='contain'
-          source={require('../assets/money.png')}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Healthcare", {listID: 3 });
-          }}
-          style={[styles.circleButton, {left:170, bottom: 40}]}
-        >
-          <Image style={{width: 55, height: 60, right: 2, top: 1}}
-          resizeMode='contain'
-          source={require('../assets/healthcare.png')}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Housing", {listID: 4 });
-          }}
-          style={[styles.circleButton, {left:290, bottom: 160}]}
-        >
-          <Image style={{width: 50, height: 60}}
-          resizeMode='contain'
-          source={require('../assets/housing.png')}/>
-        </TouchableOpacity>
-
-        {/* replace the image with the counter. But this is the man in the center*/}
-        <TouchableOpacity style={[styles.largeCircle, {left:122, bottom: 380}]}
-            onPress={toggle}>
-        <Image style={{width: 100, height: 130}}
-          resizeMode='contain'
-          source={require('../assets/close.png')} />
-        </TouchableOpacity>
-        </View>
+      </View>
 
         <View style={{bottom: 100}}>
         <TouchableOpacity onPress={handleVital} style={styles.circleButton}>
@@ -213,9 +156,11 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={handleSignOut} style={[styles.button, {left: 60}]}>
+        <View style={[{position:'absolute', alignItems: 'center', justifyContent:'center', top: 390, right:75}]}>
+        <TouchableOpacity onPress={handleSignOut} >
           <Text style={styles.buttonText}>Sign out</Text>
         </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
