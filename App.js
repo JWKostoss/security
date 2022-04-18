@@ -76,9 +76,6 @@ export default function App() {
         pointss: [points, setPoints],
       }}
     >
-      {/* <NavigationContainer>
-        <AppStack/></NavigationContainer> */}
-      
       <NavigationContainer>
       <DrawerNavigator/>
       </NavigationContainer>

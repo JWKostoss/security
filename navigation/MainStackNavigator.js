@@ -16,10 +16,26 @@ const Stack = createNativeStackNavigator();
 
 const screenOptionStyle = {
   headerStyle: {
-    backgroundColor: "#859a9b",
+    backgroundColor: "firebrick",
   },
   headerTintColor: "white",
   headerBackTitle: "Back",
+};
+
+const HomeStackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen name="Documents" component={DocumentsScreen} />
+      <Stack.Screen name="Housing" component={HousingScreen} />
+      <Stack.Screen name="Education" component={EducationScreen} />
+      <Stack.Screen name="Employment" component={EmploymentScreen} />
+      <Stack.Screen name="Financial" component={FinancialScreen} />
+      <Stack.Screen name="Healthcare" component={HealthcareScreen} />
+      <Stack.Screen name="Vital Signs" component={VitalScreen} />
+      
+      </Stack.Navigator>
+  );
 };
 
 const MainStackNavigator = () => {

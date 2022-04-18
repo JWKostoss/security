@@ -14,6 +14,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { PageContext } from "../context";
 
+import
+{sendPasswordResetEmail,
+
+} from "firebase/auth";
+
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,6 +53,16 @@ const LoginScreen = () => {
       })
       .catch((error) => alert(error.message));
   };
+
+  // const handleForgotPassword = () => {
+  //   fire.auth
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then((userCredentials) => {
+  //       const user = userCredentials.user;
+  //       console.log("Logged in with:", user.email);
+  //     })
+  //     .catch((error) => alert(error.message));
+  // };
 
   return (
     <KeyboardAvoidingView

@@ -4,6 +4,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { VitalStackNavigator } from "./MainStackNavigator";
 import TabNavigator from "./TabNavigator";
+import EmploymentScreen from "../screens/tabs/employment";
+
 
 const Drawer = createDrawerNavigator();
 
@@ -15,5 +17,4 @@ const DrawerNavigator = () => {
     </Drawer.Navigator>
   );
 };
-
 export default DrawerNavigator;
