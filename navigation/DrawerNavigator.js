@@ -12,6 +12,7 @@ import  { TabNavigator } from "./TabNavigator";
 import CustomDrawer from "../components/CustomDrawer";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
+import VerifyEmail from "../screens/VerifyEmail";
 
 
 const Drawer = createDrawerNavigator();
@@ -30,6 +31,9 @@ const DrawerNavigator = () => {
           ),}} />
     <Drawer.Screen name="Zoom Meeting" component={ZoomScreen}  options={{ drawerIcon: ({color}) => (
             <Ionicons name="videocam-outline" size={22} color={color} />
+          ),}}/>
+            <Drawer.Screen name="Verify Email" component={VerifyEmail}  options={{ drawerIcon: ({color}) => (
+            <Ionicons name="mail-outline" size={22} color={color} />
           ),}}/>
   </Drawer.Navigator>
   );
