@@ -65,6 +65,7 @@ const HomeScreen = () => {
   // these functions is to toggle the center button. it will be the animation
   return (
     <SafeAreaView style={[styles.container,{bottom:230}]}>
+      
       {/* functional homescreen button call */}
       <View style={styles.container}>
         <FloatingButtonf />
