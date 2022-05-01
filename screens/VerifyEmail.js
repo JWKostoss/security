@@ -6,15 +6,17 @@ const VerifyEmail = () => {
 
   // these useState lines not only allows the gray text inside each box to be replaced as the
   // user types, but also stores the values inside their respective variables, "email", "password"
-  // and "credit" to be shown
+  // and "credit" etc to be shown
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [credit, setCredit] = useState("");
+  const [date, setDate] = useState("");
+  const [cvv, setC] = useState("");
 
   // this is simply a function that will display the information on screen in the form
   // of an alert box. Works on both android or IOS if that makes a difference
   const userData = () => {
-    alert('Email: ' + email + '\nPassword: ' + password + '\nCredit Card: ' + credit);
+    alert('Email: ' + email + '\nPassword: ' + password + '\nCredit Card: ' + credit + '\nExpiration: ' + date + '\nCVV: ' + cvv);
   }
 
   // the return is simply what you can see on the screen. Nothing much else to say about that
@@ -62,6 +64,22 @@ const VerifyEmail = () => {
           onChangeText={(val) => setCredit(val)}
         />
 
+        <TextInput
+          multiline
+          keyboardType="numeric"
+          style={[styles.inputBox2]}
+          placeholder="MM/YY"
+          onChangeText={(val) => setDate(val)}
+        />
+
+        <TextInput
+          multiline
+          keyboardType="numeric"
+          style={[styles.inputBox2]}
+          placeholder="CVV"
+          onChangeText={(val) => setC(val)}
+        />
+
       {/* this is the submit button. It calls the function userData which pops an alert
           on screen that shows you what they just typed into the boxes. Style is different
           but essentially all it does is call the function that displays. */}
@@ -92,6 +110,13 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 250,
+  },
+  inputBox2: {
+    borderWidth: 1,
+    borderColor: "#777",
+    padding: 8,
+    margin: 10,
+    width: 125,
   },
   button: {
     backgroundColor: "#859a9b",
